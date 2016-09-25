@@ -1,13 +1,10 @@
 package com.example.chenmin.marvelcomics;
 
 import android.content.Context;
-import android.util.Log;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -17,10 +14,7 @@ import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by chenmin on 2016-09-23.
@@ -38,7 +32,7 @@ public class MarvelComicsClient {
         mListingListener = listener;
     }
 
-    private String url = "http://gateway.marvel.com/v1/public/characters?apikey=a449b9700ce081058880a80ef3a39512";
+    private String url = "http://gateway.marvel.com/v1/public/comics?apikey=a449b9700ce081058880a80ef3a39512";
 
     public void getComics() {
         Long tsLong = System.currentTimeMillis() / 1000;
@@ -63,7 +57,7 @@ public class MarvelComicsClient {
                             JSONObject image = comicObject.getJSONObject("thumbnail");
                             ComicBook comicBook = new ComicBook();
                             comicBook.setDescription(comicObject.getString("description"));
-                            comicBook.setTitle(comicObject.getString("name"));
+                            comicBook.setTitle(comicObject.getString("title"));
                             comicBook.setThumbnailPath(image.getString("path") + "." + image.getString("extension"));
                             comicBook.setId(comicObject.getInt("id"));
                             comicBook.setDate(comicObject.getString("modified").substring(0,10));

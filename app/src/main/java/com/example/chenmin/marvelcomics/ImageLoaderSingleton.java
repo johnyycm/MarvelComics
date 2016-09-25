@@ -17,13 +17,17 @@ public class ImageLoaderSingleton {
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
 
-
-    private ImageLoader.ImageCache mImageCache;
+    public static ImageLoaderSingleton getInstance(Context context) {
+        if (mInstance == null) {
+            mInstance = new ImageLoaderSingleton(context);
+        }
+        return mInstance;
+    }
 
     private ImageLoaderSingleton(Context context) {
         mRequestQueue = Volley.newRequestQueue(context);
-        mImageCache = new ImageLoader.ImageCache() {
-            private final LruCache<String, Bitmap> mCache = new LruCache<String, Bitmap>(20);
+        ImageLoader.ImageCache mImageCache = new ImageLoader.ImageCache() {
+            private final LruCache<String, Bitmap> mCache = new LruCache<String, Bitmap>(100);
 
             public void putBitmap(String url, Bitmap bitmap) {
                 mCache.put(url, bitmap);
@@ -34,17 +38,6 @@ public class ImageLoaderSingleton {
             }
         };
         mImageLoader = new ImageLoader(this.mRequestQueue, mImageCache);
-    }
-
-    public static ImageLoaderSingleton getInstance(Context context) {
-        if (mInstance == null) {
-            mInstance = new ImageLoaderSingleton(context);
-        }
-        return mInstance;
-    }
-
-    public RequestQueue getRequestQueue() {
-        return this.mRequestQueue;
     }
 
     public ImageLoader getImageLoader() {

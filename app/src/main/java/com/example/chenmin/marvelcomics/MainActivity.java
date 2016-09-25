@@ -6,9 +6,7 @@ import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
@@ -34,9 +32,7 @@ public class MainActivity extends AppCompatActivity implements ListingListener {
         // use a grid layout manager
         mLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-
-
-
+        //download comics
         mMarvelComicsClient = new MarvelComicsClient(getApplicationContext(), this);
         mMarvelComicsClient.getComics();
     }
