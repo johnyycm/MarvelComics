@@ -1,0 +1,38 @@
+{
+  "settingsReloadIntervalMinutes": 1,
+  "fullscreen": true,
+  "autoStart": false,
+  "lazyLoadTabs": false,
+  "websites": [
+    {
+      "url": "https://rpm.newrelic.com/accounts/638481/mobile/5872711/",
+      "duration": 60,
+      "tabReloadIntervalSeconds": 65
+    },
+    {
+      "url": "https://rpm.newrelic.com/accounts/638481/mobile/5872711/http_errors",
+      "duration": 60,
+      "tabReloadIntervalSeconds": 65
+    },
+    {
+      "url": "https://rpm.newrelic.com/accounts/638481/mobile/5787262/",
+      "duration": 60,
+      "tabReloadIntervalSeconds": 65
+    },
+    {
+      "url": "https://rpm.newrelic.com/accounts/638481/mobile/5787262/http_errors",
+      "duration": 60,
+      "tabReloadIntervalSeconds": 65
+    },
+    {
+      "url": "https://www.fabric.io/trader-corporation/android/apps/ca.autotrader.userapp/dashboard/audience",
+      "duration": 60,
+      "tabReloadIntervalSeconds": 65
+    },
+{
+      "url": "https://www.fabric.io/trader-corporation/ios/apps/ca.autotrader.adsearch/dashboard/audience",
+      "duration": 60,
+      "tabReloadIntervalSeconds": 65
+    }
+  ]
+}
